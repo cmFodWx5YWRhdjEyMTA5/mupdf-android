@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ViewAnimator
+        android:id="@+id/switcher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" >
+
+        <LinearLayout
+            android:id="@+id/topBar0Main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/toolbar"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/pageback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/toggle_links"
+                android:background="@drawable/button"
+                android:src="@mipmap/pageback" />
+
+            <TextView
+                android:id="@+id/docNameText"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <ImageButton
+                android:id="@+id/searchButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/search_document"
+                android:background="@drawable/button"
+                android:src="@mipmap/search" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/topBar1Search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/toolbar" >
+
+            <ImageButton
+                android:id="@+id/cancelSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:contentDescription="@string/cancel"
+                android:background="@drawable/button"
+                android:onClick="OnCancelSearchButtonClick"
+                android:src="@drawable/ic_cancel" />
+
+            <EditText
+                android:id="@+id/searchText"
+                android:background="@drawable/search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/cancelSearch"
+                android:layout_toLeftOf="@+id/searchBack"
+                android:inputType="text"
+                android:hint="@string/search"
+                android:singleLine="true" />
+
+            <ImageButton
+                android:id="@+id/searchBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/searchForward"
+                android:contentDescription="@string/search_backwards"
+                android:background="@drawable/button"
+                android:src="@drawable/ic_arrow_left" />
+
+            <ImageButton
+                android:id="@+id/searchForward"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:contentDescription="@string/search_forwards"
+                android:background="@drawable/button"
+                android:src="@drawable/ic_arrow_right" />
+
+        </RelativeLayout>
+    </ViewAnimator>
+
+    <TextView
+        android:id="@+id/tv_burnreadmenu"
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignBottom="@+id/lowerButtons"
+        android:layout_marginBottom="150dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/burnreadmenustyle"
+        android:ellipsize="marquee"
+        android:gravity="center"
+        android:text="批注"
+        android:onClick="OnInkButtonClick"
+        android:textColor="@android:color/white"
+        android:textSize="13dp" />
+    <RelativeLayout
+        android:id="@+id/lowerButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="0dp">
+
+        <LinearLayout
+            android:id="@+id/functionButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/toolbar"
+            android:orientation="horizontal"
+            android:padding="15dp">
+
+            <ImageButton
+                android:id="@+id/outlinebottommenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/button"
+                android:contentDescription="@string/outline_title"
+                android:src="@mipmap/outlinebottommenu" />
+
+            <ImageButton
+                android:id="@+id/nightbottommenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/button"
+                android:contentDescription="夜间模式"
+                android:onClick="onUnDO"
+                android:src="@mipmap/nightbottommenu" />
+
+            <ImageButton
+                android:id="@+id/drawing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/button"
+                android:contentDescription="多功能画笔"
+                android:onClick="OnInkButtonClick"
+                android:src="@mipmap/drawing" />
+
+            <ImageButton
+                android:id="@+id/bookmarkmaininit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/button"
+                android:contentDescription="收藏"
+                android:onClick="onUnDO"
+                android:src="@mipmap/bookmarkmaininit" />
+
+            <ImageButton
+                android:id="@+id/opinion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/button"
+                android:contentDescription="画批注"
+                android:onClick="OnInkButtonClick"
+                android:src="@mipmap/opinion" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/functionButtons"
+            android:background="@color/toolbar"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <!--上一章-->
+            <TextView
+                android:id="@+id/Iv_bookreadmenuprevchapter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="10dp"
+                android:text="@string/prechapter"
+                android:textColor="#FFFFFFFF"
+                android:onClick="onLastPageClick"
+                android:textSize="15dp" />
+
+            <SeekBar
+                android:id="@+id/pageSlider"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="22dp"
+                android:layout_weight="1"
+                android:maxHeight="3dp"
+                android:minHeight="3dp"
+                android:progressDrawable="@drawable/seekbardragstyle"
+                android:thumb="@mipmap/barbottommenu"
+                android:thumbOffset="0dip" />
+
+            <!--下一章-->
+            <TextView
+                android:id="@+id/Iv_bookreadmenunextchapter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="10dp"
+                android:text="@string/nextchapter"
+                android:textColor="#FFFFFFFF"
+                android:onClick="onNextPageClick"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/pageNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/linearButtons"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="0dp"
+            android:background="@drawable/page_num"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#FFFFFF" />
+
+
+        <!--签名确认/批注确认-->
+        <RelativeLayout
+            android:id="@+id/inkConfirm"
+            android:layout_alignParentBottom="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#EE000000">
+
+            <TextView
+                android:id="@+id/pencildosavetip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/issignature"
+                android:textColor="#ffffffff"
+                android:textSize="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pencildosavetip"
+                android:gravity="bottom"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:id="@+id/tv_pencilok"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/pencildonestyle"
+                    android:onClick="OnInkButtonOkClick"
+                    android:gravity="center"
+                    android:text="@string/ok"
+                    android:textColor="#ffffffff"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/tv_pencilcancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/pencildonestyle"
+                    android:onClick="OnInkButtonCancelClick"
+                    android:gravity="center"
+                    android:text="@string/cancel"
+                    android:textColor="#ffffffff"
+                    android:textSize="16dp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+
+
+        <!--多功能画笔-->
+        <LinearLayout
+            android:id="@+id/functionsDraw"
+            android:layout_alignParentBottom="true"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#DD000000"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/lly_drawingline"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/Iv_drawingline"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="18dp"
+                        android:layout_marginTop="11dp"
+                        android:src="@mipmap/line" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lly_drawingarrow"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/Iv_drawingarrow"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="18dp"
+                        android:layout_marginTop="11dp"
+                        android:src="@mipmap/arrows" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lly_drawingellipse"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/Iv_drawingellipse"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="18dp"
+                        android:layout_marginTop="11dp"
+                        android:src="@mipmap/ellipse" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lly_drawingrectangle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/Iv_drawingrectangle"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="18dp"
+                        android:layout_marginTop="11dp"
+                        android:src="@mipmap/rectangle" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lly_drawingpencil"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/Iv_drawingpencil"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="18dp"
+                        android:layout_marginTop="11dp"
+                        android:src="@mipmap/pencil" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lly_drawingsignature"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <ImageView
+                        android:id="@+id/Iv_drawingsignature"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="18dp"
+                        android:layout_marginTop="11dp"
+                        android:src="@mipmap/signature" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lly_drawingwritetext"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/Iv_drawingwritetext"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="18dp"
+                        android:layout_marginTop="11dp"
+                        android:src="@mipmap/writetext" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/pageSlider"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/page_num"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#FFFFFF" />
+</RelativeLayout>
